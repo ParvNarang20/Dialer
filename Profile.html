@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | Instagram</title>
+    <link rel="shortcut icon" href="assets\logo.png" type="image/x-icon">
+
+
+    <style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    flex-wrap: wrap;
+}
+
+.left-panel {
+    width: 100%;
+    max-width: 300px;
+}
+
+.right-panel {
+    width: 100%;
+    max-width: calc(100% - 300px);
+}
+
+
+.side-nav {
+    width: 245px;
+    height: 100%;
+    background: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px 20px;
+    border-right: 1px solid lightgray;
+}
+
+.logo {
+    display: block;
+    margin-bottom: 10px;
+
+}
+
+.logo-img {
+    width: 110px;
+    margin-left: 10px;
+}
+
+.logo-icon {
+    width: 30px;
+    margin-left: 10px;
+    margin-bottom: 40px;
+}
+
+.nav-links {
+    list-style: none;
+    position: relative;
+
+}
+
+.nav-links li {
+    padding: 3px 0;
+    font-size: large;
+    width: 100%;
+    height: 60px;
+    transition: background-color 0.5s ease;
+}
+
+.nav-links li a {
+    color: black;
+    text-decoration: none;
+    padding: 15px 14px;
+    display: flex;
+}
+
+.nav-links li p {
+    margin-top: 5px;
+}
+
+.nav-img {
+    width: 25px;
+    margin-right: 15px;
+}
+
+
+.nav-links li:hover {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+}
+
+.nav-links li:hover a {
+    color: black;
+    transition: 0.3s;
+}
+
+
+.nav-links li:nth-child(8) {
+    margin-bottom: 80px;
+}
+
+.logo-icon {
+    display: none;
+}
+
+.more-section {
+    margin-top: 10px;
+
+}
+
+.more-section .drop-up-options {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    display: none;
+}
+
+.drop-up-options {
+    position: absolute;
+    bottom: 65px;
+    left: 60%;
+    width: 120%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    display: none;
+}
+
+.drop-up-options li {
+    list-style: none;
+    padding: 5px 10px;
+    margin: 0;
+    font-size: 16px;
+}
+
+.drop-up-options hr {
+    margin: 0;
+    border: none;
+    border-top: 2px solid #ccc;
+}
+
+.drop-up-options li a {
+    color: #333;
+    text-decoration: none;
+}
+
+.drop-up-options li a:hover {
+    background-color: #f5f5f5;
+}
+
+.show-drop-up {
+    display: block;
+}
+.moreopt{
+            margin: 200px 0px;
+        }
+.search {
+    position: relative;
+    left: 0;
+    width: 400px;
+    height: 100vh;
+    background-color: white;
+    font-size: 20px;
+    border-left: 1px solid lightgrey;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 5px 0 20px 0 rgba(0, 0, 0, 0.2);
+    visibility: hidden;
+    transition: left 0.3s ease;
+}
+
+.search h1 {
+    position: relative;
+    left: 40px; 
+    top: 20px;
+    font-size: 30px;
+
+}
+
+.box {
+    position: relative;
+    left: 20px;
+    top: 50px;
+    width: 90%;
+    height: 45px;
+}
+
+.box .search-input {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    background-color: rgb(241, 240, 240);
+    border-radius: 5px;
+    padding-left: 20px;
+    font-size: 20px;
+}
+.output{
+    position: relative;
+    top: 40%;
+    left: 30%;
+    font-size: 16px;
+}
+.search p{
+    position: relative;
+    left: 35px;
+    top: 80px;
+}
+
+.show-search{
+    visibility: visible;
+    left: 70px;
+    z-index: 1;
+}
+
+
+.main {
+    width: 930px;
+    height: 700px;
+    margin-left: 130px;
+    margin-top: 10px;
+}
+
+.myprofile {
+    width: 930px;
+    height: 220px;
+    border-bottom: 1px solid lightgray;
+    display: flex;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    margin-top: 20px;
+    margin-left: 60px;
+}
+
+.all {
+    margin-left: 80px;
+}
+
+.idnamesection {
+    display: flex;
+    margin-top: 30px;
+    width: 450px;
+    height: 32px;
+
+}
+
+.settingsicon {
+    width: 28px;
+    height: 28px;
+
+}
+
+.editbtn {
+    width: 100px;
+    height: 30px;
+    margin: 0 10px;
+    border: none;
+    background-color: whitesmoke;
+    border-radius: 8px;
+    color: black;
+    font-weight: bold;
+}
+
+.editbtn:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.followsection {
+    margin-top: 10px;
+
+}
+
+.followsection ul {
+    display: flex;
+}
+
+.followsection ul li {
+    list-style: none;
+    padding: 10px;
+    margin-right: 40px;
+    padding-left: 0;
+}
+
+.nameandbio {
+    margin-top: 10px;
+}
+
+.postnav {
+    width: 930;
+    height: auto;
+}
+
+.postnav ul {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-right: 0px;
+}
+
+.postnav ul li {
+    list-style: none;
+    padding: 10px;
+    padding-left: 0;
+    margin-right: 50px;
+}
+
+.postnav_img {
+    width: 15px;
+    vertical-align:middle;
+}
+
+.postnav ul li:nth-child(1) {
+    border-top: 1px solid black;
+}
+
+.postnav ul li:hover {
+    border-top: 1px solid black;
+    cursor: pointer;
+}
+
+.footer{
+    margin-top: 40%;
+    font-size: 12px;
+}
+.footer ul{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    color: gray;
+}
+
+.footer ul li{
+    list-style: none;
+    padding: 10px;
+}
+
+.footer ul li:hover{
+    border-bottom: 1px solid lightgray;
+    cursor: pointer;
+}
+.footer p{
+    justify-content: center;
+    text-align: center;
+    margin-top: 10px;
+    color:gray;
+}
+
+    </style>
+  
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <div class="header">
+                <div class="side-nav">
+                    <a href="#" class="logo">
+                        <img src="assets/Instagram.png" alt="instagram" class="logo-img">
+                        <img src="assets/insta-logo.png" class="logo-icon" alt="logo">
+                    </a>
+                    <ul class="nav-links">
+                        <li ><a href="./insta cln.html"><img src="assets/homepage.png" class="nav-img"
+                                    alt="home">
+                                <p>Home</p>
+                            </a></li>
+                        <li onclick="openSearchBox()"><a href="#"><img src="assets/search.png" class="nav-img" alt="search">
+                                <p>Search</p>
+                            </a></li>
+                        <li><a href="#"><img src="assets/video.png" class="nav-img" alt="reels">
+                                <p> Reels</p>
+                            </a></li>
+                        <li><a href="Inbox.html"> <img src="assets/messenger.png" class="nav-img" alt="message">
+                                <p>Message</p>
+                            </a></li>
+                        <li><a href="#"> <img src="assets/notification.png" class="nav-img" alt="notification">
+                                <p>Notifications</p>
+                            </a></li>
+                        <li><a href="#"><img src="assets/create.png" class="nav-img" alt="create">
+                                <p>Create</p>
+                            </a></li>
+                        <li><a href="Profile.html"><img src="assets/profile.png" class="nav-img" alt="profile">
+                                <p>Profile</p>
+                            </a></li>
+
+                        <li class="moreopt" onclick="toggleDropUpOptions()">
+                            <a href="#"><img src="assets/menu.png" class="nav-img" alt="more">
+                                <p>More</p>
+                            </a>
+                        </li>
+                        <div class="active"></div>
+
+                    </ul>
+
+                </div>
+            </div>
+            <div class="search" id="find">
+                <h1>Search</h1>
+                <div class="box">
+                    <input type="text" placeholder="search" class="search-input">
+                </div>
+                <p>Recent</p>
+                <div class="output">
+                    <p>No Recent</p>
+                </div>
+            </div>
+        </div>
+        <div class="right-panel">
+            <div class="main">
+                <div class="myprofile">
+                    <img src="assets/profile.png" class="profile-img" alt="profile">
+                    <div class="all">
+                        <div class="idnamesection">
+                            <h2>Actor_69</h2><button class="editbtn">Edit Profile</button><img
+                                src="https://tse2.mm.bing.net/th?id=OIP.RmYbsdvh7NdvW48q-twvTAHaHa&pid=Api&P=0&h=220" alt="settings" class="settingsicon">
+                            
+                        </div>
+                        <div class="followsection">
+                            <ul>
+                                <li><b>0</b> Post</li>
+                                <li><b>69</b> Followers</li>
+                                <li><b>69</b> Following</li>
+                            </ul>
+                        </div>
+                        <div class="nameandbio">
+                            <h4>ABout Bio</h4>
+                            <p>Ram Ram Ji</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="postnav">
+                    <ul>
+                        <li><p>POST</p></li>
+                        <li><p>SAVED</p></li>
+                        <li><p>TAGGED</p></li>
+                    </ul>
+                </div>
+               
+                <div class="footer">
+                    <ul>
+                        <li> Meta</li>
+                        <li> About</li>
+                        <li> Blog</li>
+                        <li> Jobs</li>
+                        <li> Help</li>
+                        <li> API</li>
+                        <li> Privacy</li>
+                        <li> Terms</li>
+                        <li> Top Accounts</li>
+                        <li> Locations</li>
+                        <li> Instagram Lite</li>
+                        <li> Contact Uploading & Non-Users</li>
+                        <li>  Meta Verified</li>
+                    </ul>
+                    <p>© 2023 Instagram from Meta</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

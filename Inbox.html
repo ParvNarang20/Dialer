@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inbox | Instagram</title>
+    <link rel="shortcut icon" href="assets\logo.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+}
+
+.left-panel {
+    width: 100%;
+    max-width: 80px;
+}
+
+.right-panel {
+    width: 100%;
+    max-width: calc(100% - 80px);
+}
+
+.side-nav {
+    width: 80px;
+    height: 100%;
+    background: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px 10px;
+    border-right: 1px solid lightgray;
+}
+
+.logo-icon {
+    width: 30px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.nav-links {
+    list-style: none;
+    position: relative;
+
+}
+
+.nav-links li {
+    padding: 3px 0;
+    font-size: large;
+    width: 100%;
+    height: 60px;
+    transition: background-color 0.5s ease;
+}
+
+.nav-links li a {
+    color: black;
+    text-decoration: none;
+    padding: 15px 14px;
+    display: flex;
+}
+
+.nav-img {
+    width: 25px;
+    margin-right: 15px;
+}
+
+
+.nav-links li:hover {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+}
+
+.nav-links li:hover a {
+    color: black;
+    transition: 0.3s;
+}
+
+
+.nav-links li:nth-child(8) {
+    margin-bottom: 80px;
+}
+
+.logo-img {
+    display: none;
+}
+
+.more-section {
+    margin-top: 10px;
+
+}
+
+.more-section .drop-up-options {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    display: none;
+}
+
+.drop-up-options {
+    position: absolute;
+    bottom: 65px;
+    left: 210%;
+    width: 400%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    display: none;
+}
+
+.drop-up-options li {
+    list-style: none;
+    padding: 5px 10px;
+    margin: 0;
+    font-size: 16px;
+}
+
+.drop-up-options hr {
+    margin: 0;
+    border: none;
+    border-top: 2px solid #ccc;
+}
+
+.drop-up-options li a {
+    color: #333;
+    text-decoration: none;
+}
+
+.drop-up-options li a:hover {
+    background-color: #f5f5f5;
+}
+
+.show-drop-up {
+    display: block;
+}
+.moreopt{
+            margin: 200px 0px;
+        }
+
+.box {
+    position: relative;
+    left: 20px;
+    top: 50px;
+    width: 90%;
+    height: 45px;
+}
+
+
+
+.output {
+    position: relative;
+    top: 40%;
+    left: 30%;
+    font-size: 16px;
+}
+
+.main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+
+}
+
+.all-chat {
+    width: 100%;
+    max-width: 390px;
+    border-right: 1px solid lightgray;
+    height: 100vh;
+    margin-bottom: 50px;
+}
+
+.chatbox {
+    width: 100%;
+    max-width: calc(100% - 390px);
+}
+
+.myaccount {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    top: 5%;
+    left: 5%;
+    cursor: pointer;
+}
+
+.myaccount h2 {
+    margin-right: 160px;
+
+}
+
+.heading {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 60px;
+    position: relative;
+    top: 7%;
+    left: 5%;
+}
+
+.heading .m {
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 210px;
+}
+
+.heading .r {
+    font-size: 18px;
+    color: gray;
+    cursor: pointer;    
+}
+
+.persons {
+    display: flex;
+    margin-left: 15px;
+
+}
+
+.myprofile-img {
+    width: 60px;
+    margin: 8px;
+    border-radius: 50%;
+}
+
+.scrollable {
+    max-height: 100vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.messgn {
+    position: relative;
+    max-width: 400px;
+    left: 280px;
+    top: 250px;
+    text-align: center;
+
+}
+
+.messgn img {
+    width: 150px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.messgn h3 {
+    margin-bottom: 10px;
+}                                        
+
+.msgtxt{
+     margin-top: 25px;
+      font-size: large;
+     cursor: pointer;
+}
+
+.messgn button {
+    width: 110px;
+    height: 35px;
+    background-color: #405DE6;
+    border-radius: 5px;
+    padding: 5px;
+    border: none;
+    color: white;
+    font-size: medium;
+    margin: 10px;
+    cursor: pointer;
+
+}
+.fixed{
+    display: none;
+}
+.smnav{
+    display: none;
+}
+
+    </style>
+
+
+    <div class="container">
+        <div class="left-panel">
+            <div class="header">
+                <div class="side-nav">
+                    <a href="./insta cln.html" class="logo">
+                        <img src="assets/Instagram.png" alt="instagram" class="logo-img">
+                        <img src="assets/insta-logo.png" class="logo-icon" alt="logo">
+                    </a>
+                    <ul class="nav-links">
+                        <li><a href="./insta cln.html"><img src="assets/homepage.png" class="nav-img" alt="home">
+
+                            </a></li>
+
+                        <li><a href="#"><img src="assets/video.png" class="nav-img" alt="reels">
+
+                            </a></li>
+                        <li><a href="Inbox.html"> <img src="assets/messenger.png" class="nav-img" alt="message">
+
+                            </a></li>
+                        <li><a href="#"> <img src="assets/notification.png" class="nav-img" alt="notification">
+
+                            </a></li>
+                        <li><a href="#"><img src="assets/create.png" class="nav-img" alt="create">
+
+                            </a></li>
+                        <li><a href="Profile.html"><img src="assets/profile.png" class="nav-img" alt="profile">
+
+                            </a></li>
+
+                        <li class="moreopt" onclick="toggleDropUpOptions()">
+                            <a href="#"><img src="assets/menu.png" class="nav-img" alt="more">
+
+                            </a>
+                            <ul class="drop-up-options" id="dropUpOptions">
+                                <li><a href="#"><img src="assets/Setting.png" alt="Setting" class="nav-img">
+                                        Settings</a></li>
+                                <li><a href="#"><img src="assets/activity.png" alt="act" class="nav-img"> Your
+                                        Activities</a></li>
+                                <li><a href="#"><img src="assets/mark.png" alt="mark" class="nav-img"> Saved</a></li>
+                                <li><a href="#"><img src="assets/night-mode.png" alt="night" class="nav-img"> Switch
+                                        Apperacence</a></li>
+                                <li><a href="#"> ,<img src="assets/warning.png" alt="warning" class="nav-img">Report a
+                                        problem</a></li>
+                                <hr>
+                                <li><a href="#">Switch Account</a></li>
+                                <hr>
+                                <li><a href="#">Logout</a></li>
+                            </ul>
+                        </li>
+                        <div class="active"></div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="right-panel">
+            <div class="main">
+                <div class="smnav">
+                    <a href="./insta cln.html" style="text-decoration: none;"><img src="assets/insta-logo.png"
+                            class="smlogo-icon" alt="logo"></a>
+                   
+                    <img src="assets/notification.png" class="smnav-img" alt="notification">
+                </div>
+                <div class="all-chat">
+                    <div class="myaccount">
+                        <h2>Actor</h2>
+                        <img src="https://www.bhprsd.org/cms/lib/NJ01001930/Centricity/Domain/79/Man%20Bitmoji%202.jpg" class="nav-img" alt="edit">
+                    </div>
+                    <div class="heading">
+                        <p class="m">Messages</p>
+                        <p class="r">Requests</p>
+                    </div>
+                    <div class="scrollable">
+                        <div class="persons">
+                            <img src="assets/profile.png" class="myprofile-img" alt="profileimg">
+                            <p class="msgtxt">
+                                 Name<br><span
+                                    style="color:gray; font-size: 14px; margin-top: 5px;">The Message Has Written</span></p>
+                        </div>
+                        <div class="persons">
+                            <img src="assets/profile.png" class="myprofile-img" alt="profileimg">
+                            <p class="msgtxt">
+                                Name<br><span
+                                    style="color:gray; font-size: 14px; margin-top: 5px;">The Message Has Written</span></p>
+                        </div>
+                        <div class="persons">
+                            <img src="assets/profile.png" class="myprofile-img" alt="profileimg">
+                            <p class="msgtxt">
+                                 Name<br><span
+                                    style="color:gray; font-size: 14px; margin-top: 5px;">The Message Has Written</span></p>
+                        </div>
+                        <div class="persons">
+                            <img src="assets/profile.png" class="myprofile-img" alt="profileimg">
+                            <p class="msgtxt">
+                                Name<br><span
+                                    style="color:gray; font-size: 14px; margin-top: 5px;">The Message Has Written</span></p>
+
+                        </div>
+                        <div class="persons">
+                            <img src="assets/profile.png" class="myprofile-img" alt="profileimg">
+                            <p class="msgtxt">
+                                 Name<br><span
+                                    style="color:gray; font-size: 14px; margin-top: 5px;">The Message Has Written. </span></p>
+
+                        </div>
+                        <div class="persons">
+                            <img src="assets/profile.png" class="myprofile-img" alt="profileimg">
+                            <p class="msgtxt">
+                                Name<br><span
+                                    style="color:gray; font-size: 14px; margin-top: 5px;">The Message Has Written. </span></p>
+                        </div>
+                        <div class="persons">
+                            <img src="assets/profile.png" class="myprofile-img" alt="profileimg">
+                            <p class="msgtxt">
+                                Name<br><span
+                                    style="color:gray; font-size: 14px; margin-top: 5px;">The Message Has Written</span></p>
+                        </div>
+                        <div class="persons">
+                            <img src="assets/profile.png" class="myprofile-img" alt="profileimg">
+                            <p class="msgtxt">
+                                Name<br><span
+                                    style="color:gray; font-size: 14px; margin-top: 5px;">The Message Has Written</span></p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="fixed">
+                    <a href="./insta cln.html" style="text-decoration: none;"> <img src="assets/homepage.png"
+                            class="bottombar-img" alt="home"></a>
+                    <a href="./insta cln.html" style="text-decoration: none;"> <img src="assets/video.png"
+                            class="bottombar-img" alt="home"></a>
+                    <a href="./insta cln.html" style="text-decoration: none;"> <img src="assets/create.png"
+                            class="bottombar-img" alt="home"></a>
+                    <a href="Inbox.html" style="text-decoration: none;"> <img src="assets/messenger.png"
+                            class="bottombar-img" alt="home"></a>
+                    <a href="Profile.html" style="text-decoration: none;"> <img src="assets/profile.png"
+                            class="bottombar-imga" alt="home"></a>
+                </div>
+                <div class="chatbox">
+                    <div class="messgn">
+                        <h3>Your Messages</h3>
+                        <p>Send private photos and messages to a friend or group</p>
+                        <button>Message</button>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
